@@ -1,8 +1,20 @@
+//import { useContext, useEffect, useState } from "react";
+//import { MovieContext } from "../../context/movieContext";
+
+import { useState } from "react";
 import { SearchbarContainer } from "./Searchbar.styles.jsx";
 import { Search } from "lucide-react";
 
-export default function Searchbar(){
+export default function Searchbar({ onSearch }){
 
+    const [inputValue, setInputValue] = useState("");
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(inputValue);
+        onSearch(inputValue);
+    };
+/*
     const { searchQuery, setSearchQuery } = useContext(MovieContext); //usaremos para alterar o contexto do que vai ser pesquisado
     const [inputValue, setInputValue] = useState('');
     
@@ -20,7 +32,22 @@ export default function Searchbar(){
         }
     }, [searchQuery]); //useEffect acontece sempre que o searchQuery muda
 
+*/
     return (
+        
+        <SearchbarContainer onSubmit={handleSubmit}>
+            <input
+            type="text"
+            placeholder="Buscar filmes..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+        />
+
+        <button type="submit">Buscar</button>
+    </SearchbarContainer>
+  );
+
+        /*
         <SearchbarContainer onSubmit={handleSubmit}>
             <input 
                 type="text"
@@ -29,6 +56,9 @@ export default function Searchbar(){
                 placeholder="Insira o nome de um filme"
             />
             <button type="submit"><Search/></button>
+            
         </SearchbarContainer>
-    )
+        */
+        
+        
 };
