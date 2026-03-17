@@ -111,5 +111,6 @@ h1 {
 section {
   
   background: var(--bg-main);
-  background-size:var(--bg-main-size)
+  background-size:var(--bg-main-size);
+  width: 100%;
 }
