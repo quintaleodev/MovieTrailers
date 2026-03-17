@@ -66,14 +66,19 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  /* testar background qdo design estiver feito
-  background: radial-gradient(
+  
+  /*background*/
+  --bg-main: 
+    url("/src/assets/noiseTest2.png"),
+    radial-gradient(
       circle at 50% 20%,
       #1c1b18 0%,
       #121212 40%,
       #0c0c0c 100%
     );
-  */
+
+  --bg-main-size: 100px 100px, cover;
+  
 }
 
 * {
@@ -84,8 +89,6 @@
 
 body {
   
-  background-color: var(--main-bg);
-  
   margin: 0;
   padding: 2rem;
   min-width: 320px;
@@ -95,4 +98,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background: var(--bg-main);
+  background-size:var(--bg-main-size)
+  
+}
+
+h1 {
+  color: var(--color-primary);
+}
+
+section {
+  
+  background: var(--bg-main);
+  background-size:var(--bg-main-size)
 }
