@@ -1,10 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home.jsx';
+import HeaderContent from './Components/HeaderContent/HeaderContent.jsx';
+import FooterContent from './Components/FooterContent/FooterContent.jsx';
+
 function App() {
 
-  return (
-    <>
-      <h1>TrailerFlix</h1>
-    </>
-  )
+   return (
+    <Router>
+      <div className="App">   
+        <HeaderContent/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        <FooterContent/>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
